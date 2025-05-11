@@ -59,21 +59,11 @@
         @property --g4-4-x-position { syntax: "<percentage>"; inherits: false; initial-value: 11.712962962962967%; }
         @property --g4-4-y-position { syntax: "<percentage>"; inherits: false; initial-value: 16.550308008213555%; }
 
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;  /* Ensure full height */
-            box-sizing: border-box; /* Helps with layout issues */
-        }
-        
-        /* Existing body styles, modified for responsiveness */
         body {
-            color: #f5f5f5;
             /* background-color: #121212; */
-            /* overflow: hidden; REMOVE this if it's commented */
-            min-height: 100vh; /* Ensures proper height on mobile */
-            display: flex;
-            flex-direction: column;
+            color: #f5f5f5;
+            overflow: hidden;
+            height: 100vh;
         }
 
         /* Container for all content */
@@ -1023,6 +1013,66 @@
             height: 47.5px; /* Spacer for Bottom of Experience Section */
         }
 
+        @media (max-width: 768px) {
+            #about {
+                height: auto;
+                min-height: 100vh;
+                overflow: visible;
+            }
+            
+            /* Adjust page content for better mobile scrolling */
+            .page-content {
+                max-height: none;
+                overflow: visible;
+                padding-bottom: 60px; /* Add padding at bottom to prevent content being cut off */
+            }
+            
+            /* Make sure the container allows proper scrolling */
+            .container {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            
+            /* Fix content area to fill available space */
+            .content-area {
+                flex: 1;
+                position: relative;
+                overflow: visible;
+            }
+            
+            /* Adjust page positioning for mobile */
+            .page {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+                padding: 2rem 1rem 4rem 1rem; /* Added bottom padding */
+            }
+        }
+
+        /* Improve scrollbar appearance on mobile */
+        body {
+            -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+        }
+
+        /* Add padding to bottom of all pages to prevent content being cut off by browser UI */
+        .spacer {
+            height: 80px; /* Increased from 47.5px to provide more space at bottom */
+        }
+
+        /* Fix for nav bar to ensure it stays at top */
+        .nav-bar {
+            position: sticky;
+            top: 1rem;
+            z-index: 10;
+        }
+
+
+        
     </style>
 </head>
 <body>
