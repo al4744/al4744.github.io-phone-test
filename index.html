@@ -59,11 +59,19 @@
         @property --g4-4-x-position { syntax: "<percentage>"; inherits: false; initial-value: 11.712962962962967%; }
         @property --g4-4-y-position { syntax: "<percentage>"; inherits: false; initial-value: 16.550308008213555%; }
 
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;  /* Ensure full height */
+            box-sizing: border-box; /* Helps with layout issues */
+        }
+        
+        /* Existing body styles, modified for responsiveness */
         body {
-            /* background-color: #121212; */
             color: #f5f5f5;
-/*             overflow: hidden; */
-            height: 100vh;
+            /* background-color: #121212; */
+            /* overflow: hidden; REMOVE this if it's commented */
+            min-height: 100vh; /* Ensures proper height on mobile */
             display: flex;
             flex-direction: column;
         }
