@@ -1013,6 +1013,16 @@
             height: 47.5px; /* Spacer for Bottom of Experience Section */
         }
 
+        @antml:function_calls>
+        <invoke name="artifacts">
+        <parameter name="command">create</parameter>
+        <parameter name="id">css-fixes</parameter>
+        <parameter name="type">application/vnd.ant.code</parameter>
+        <parameter name="language">css</parameter>
+        <parameter name="title">CSS Fixes for Mobile Scrolling</parameter>
+        <parameter name="content">/* Mobile fixes for scrolling issues */
+
+        /* Change #about page to allow scrolling on mobile */
         @media (max-width: 768px) {
             #about {
                 height: auto;
@@ -1071,8 +1081,6 @@
             z-index: 10;
         }
 
-
-        
     </style>
 </head>
 <body>
