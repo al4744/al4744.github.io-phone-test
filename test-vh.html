@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andy Lee</title>
+    <head><link rel="icon" href="head-icons/A.png" type="image/png"></head>
+<!--     <link rel="icon" type="image/png" href="icon.png" /> -->
+
+         <!-- LINK BELOW NEEDS ALL.MIN.CSS & FA-SOLID-900.TTF & FA-SOLID-900.WOFF2 -->
+          <link rel="stylesheet" href="css/all.min.css">
+            <!-- FALLBACK LINK BELOW (CAN BE USED IF UNCOMMENTED)-->
+              <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+          integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+          <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+          />
+    <style>
+        /* USED FOR NAV-BAR ICONS */
+        @font-face {
+            font-family: "Font Awesome 6 Free";
+            font-style: normal;
+            font-weight: 900;
+            font-display: block;
+            src: url("../webfonts/fa-solid-900.woff2") format("woff2"),
+                url("../webfonts/fa-solid-900.ttf") format("truetype");
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* font-family: 'Poppins', sans-serif; */
+        }
+
+        /* Gradient animation properties */
+        :root {
+            --g4-1-x-position: 87.23379629629622%;
+            --g4-1-y-position: 83.08008213552361%;
+            --g4-2-x-position: 18.900462962962923%;
+            --g4-2-y-position: 78.15195071868584%;
+            --g4-3-x-position: 88.62268518518512%;
+            --g4-3-y-position: 15.071868583162217%;
+            --g4-4-x-position: 11.712962962962967%;
+            --g4-4-y-position: 16.550308008213555%;
+        }
+
+        /* FIX IDE / CURSOR CODE TEXT COLOR */
+        /* UNCOMMENT THIS FOR SMOOTHER ANIMATION */
+        @property --g4-1-x-position { syntax: "<percentage>"; inherits: false; initial-value: 87.23379629629622%; }
+        @property --g4-1-y-position { syntax: "<percentage>"; inherits: false; initial-value: 83.08008213552361%; }
+        @property --g4-2-x-position { syntax: "<percentage>"; inherits: false; initial-value: 18.900462962962923%; }
+        @property --g4-2-y-position { syntax: "<percentage>"; inherits: false; initial-value: 78.15195071868584%; }
+        @property --g4-3-x-position { syntax: "<percentage>"; inherits: false; initial-value: 88.62268518518512%; }
+        @property --g4-3-y-position { syntax: "<percentage>"; inherits: false; initial-value: 15.071868583162217%; }
+        @property --g4-4-x-position { syntax: "<percentage>"; inherits: false; initial-value: 11.712962962962967%; }
+        @property --g4-4-y-position { syntax: "<percentage>"; inherits: false; initial-value: 16.550308008213555%; }
+
+        body {
+            /* background-color: #121212; */
+            color: #f5f5f5;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Container for all content */
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Animated gradient background */
+        .animated-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(100% 100% at var(--g4-1-x-position) var(--g4-1-y-position), #3a86ff -100%, transparent), 
+                        radial-gradient(100% 100% at var(--g4-2-x-position) var(--g4-2-y-position), #8338ec -100%, transparent), 
+                        radial-gradient(100% 100% at var(--g4-3-x-position) var(--g4-3-y-position), #00ffe1 -100%, transparent), 
+                        radial-gradient(100% 100% at var(--g4-4-x-position) var(--g4-4-y-position), #1481f5 -100%, transparent), 
+                        #121212;
+            animation-name: g-4;
+            animation-iteration-count: infinite;
+            animation-duration: 15s;
+            animation-timing-function: ease-in-out;
+            z-index: 0;
+        }
+
+        @keyframes g-4 { 
+            25% { 
+                --g4-1-x-position: 88.11342592592592%; 
+                --g4-1-y-position: 17.74127310061603%; 
+                --g4-2-x-position: 86.99074074074056%; 
+                --g4-2-y-position: 80.29774127310063%; 
+                --g4-3-x-position: 11.157407407407389%; 
+                --g4-3-y-position: 18.80903490759754%; 
+                --g4-4-x-position: 15.543981481481403%; 
+                --g4-4-y-position: 78.31622176591377%; 
+            } 50% { 
+                --g4-1-x-position: 13.888888888888834%; 
+                --g4-1-y-position: 18.891170431211524%; 
+                --g4-2-x-position: 85.20833333333329%; 
+                --g4-2-y-position: 17.874743326488705%; 
+                --g4-3-x-position: 15%; 
+                --g4-3-y-position: 85%; 
+                --g4-4-x-position: 100%; 
+                --g4-4-y-position: 100%; 
+            } 75% { 
+                --g4-1-x-position: 17.071759259259224%; 
+                --g4-1-y-position: 75.56468172484597%; 
+                --g4-2-x-position: 13.136574074074%; 
+                --g4-2-y-position: 20.739219712525706%; 
+                --g4-3-x-position: 84.25925925925932%; 
+                --g4-3-y-position: 74.94866529774129%; 
+                --g4-4-x-position: 81.82870370370377%; 
+                --g4-4-y-position: 16.837782340862468%; 
+            } 
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            display: flex;
+            border-radius: 9999px;
+            justify-content: space-between;
+            align-items: center;
+            padding: .5rem;
+            background-color: rgba(18, 18, 18, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin: 1rem auto;
+            height: 51.5px;
+            /* max-width: 666px; */ 
+        }
+
+        .contact-bar {
+            position: fixed;
+            right: 1rem;
+            top: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 9999px;
+            background-color: rgba(18, 18, 18, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.5rem;
+            overflow: hidden; /* Hide overflowing content */
+            transition: height 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+            height: 51.5px; /* Initial height shows only menu icon */
+            width: 51.5px;
+            z-index: 2;
+        }
+
+        /* HOVER MECHANICS FOR CONTACT BAR */
+        /* PICK ONLY EITHER 'A' OR 'B' (NOT BOTH) */
+        /* A */
+        .contact-bar.hover {
+            transform: translateY(-2px); /* Same hover effect as nav items */
+        }
+        /* B */
+        /* .menu-button:hover svg {
+            transform: translateY(-2px);
+            fill: #64ffda; /* Optional: same hover color */
+        /*} */
+
+        .contact-bar.open {
+            height: 202.5px; /* Height when expanded to show all icons */
+            transform: translateY(0); /* Reset transform when open */
+        }
+
+        .menu-button {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            margin: 0.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-button svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
+            transition: transform 0.3s ease, fill 0.3s ease; /* Added fill transition */
+        }
+
+        .contact-bar.hover .menu-button svg {
+            fill: #64ffda; /* Same color as active nav items */
+        }
+
+        .contact-bar.open .menu-button svg {
+            transform: rotate(90deg);
+            fill: #64ffda; /* Keep highlighted when open */
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0.2rem;
+            opacity: 0;
+            transform: translateY(-10px); /* Start slightly up for animation */
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none; /* Initially unclickable */
+        }
+
+        .contact-bar.open .contact-items {
+            opacity: 1;
+            transform: translateY(0); /* Move to normal position when visible */
+            pointer-events: all; /* Make clickable when visible */
+        }
+
+        .contact-icon {
+            width: 24px; /* Adjust size as needed */
+            height: 24px;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .contact-item {
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.3rem;
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: translateY(-2px);
+            filter: brightness(0) saturate(100%) invert(100%) sepia(36%) saturate(2778%) hue-rotate(79deg) brightness(110%) contrast(104%);
+        }
+
+        .nav-item {
+            cursor: pointer;
+            color: #fff;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+            /* padding: 0.5rem 1.75rem; */
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-item i {
+            font-size: 1.1rem;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: #64ffda;
+            transform: translateY(-2px);
+        }
+
+        .nav-item.active {
+            transform: translateY(0px);
+        }
+
+        .nav-indicator {
+            position: absolute;
+            height: 80%;
+            background-color: rgba(100, 255, 218, 0.1);
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+            z-index: 1;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /*
+        EDITS FOR 'MAX-WIDTH'
+        (Choose When Nav-Bar Adjusts with Icons)
+            576px (small phones)
+            768px (tablets)
+            992px (laptops)
+            1200px (desktops)
+            666px + 2rem = 698px
+        */
+
+        /* For your media query that removes contact icons */
+        @media (min-width: 1060px){
+            /* Adjusting the contact-bar to be horizontal */
+            .menu-button {
+                display: none;
+            }
+            
+            .contact-bar {
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+                display: flex;
+                flex-direction: row; /* Change to row for horizontal layout */
+                justify-content: center; /* Center items horizontally */
+                align-items: center;
+                padding: 0.5rem;
+                background-color: rgba(18, 18, 18, 0.3);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                height: 51.5px; /* Keep the height the same */
+                width: auto; /* Ensure it expands based on content */
+                transition: none !important;
+            }
+
+            /* Adjust the contact-items for horizontal layout */
+            .contact-items {
+                display: flex;
+                flex-direction: row; /* Change to row for horizontal layout */
+                margin-top: 0; /* Reset margin */
+                opacity: 1; /* Make sure items are visible */
+                transform: translateY(0); /* Ensure no transform */
+                pointer-events: all; /* Ensure items are clickable */
+            }
+
+            .contact-item {
+                margin: 0 0.5rem; /* Adjusted margin for horizontal spacing */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .contact-item:hover .contact-icon {
+                transform: translateY(-2px);
+                filter: brightness(0) saturate(100%) invert(100%) sepia(36%) saturate(2778%) hue-rotate(79deg) brightness(110%) contrast(104%);
+            }
+
+            .contact-bar.hover {
+                transform: translateY(0); /* Same hover effect as nav items */
+            }
+
+            /* Optional: Adjust icons size if needed for horizontal layout */
+            .contact-icon {
+                width: 24px;
+                height: 24px;
+                display: block;
+                transition: transform 0.3s;
+            }
+        }
+        
+        @media (max-width: 830px) and (min-width: 699px) {
+            .nav-item i {
+                display: none !important; /* Hides only the icons inside the nav-item */
+            }
+        }
+        
+        /* Media query for smaller screens */
+        @media (max-width: 698px) {
+            .nav-text {
+                display: none;
+            }
+            .nav-item {
+                padding: 0.5rem 1rem;
+                justify-content: center;
+            }
+            .nav-item i {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Even smaller screens - make navbar more compact */
+        @media (max-width: 480px) {
+            .nav-bar {
+                padding: .3rem;
+            }
+            .nav-item {
+                padding: 0.4rem 0.7rem;
+            }
+        }
+        
+        @media (max-width: 432px) {
+            .contact-bar {
+                display: none;
+            }
+        }
+
+        /* Welcome Overlay Styles */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .welcome-content {
+            font-family: 'Poppins', sans-serif;
+            max-width: 600px;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
+            background-color: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(0);
+            transition: transform 0.6s ease;
+            z-index: 1001;
+        }
+
+        .welcome-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .welcome-overlay.hidden .welcome-content {
+            transform: translateY(-10px);
+        }
+
+        .welcome-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #64ffda;
+        }
+
+        .welcome-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .welcome-btn {
+            background-color: #64ffda;
+            color: #121212;
+            padding: 0.85rem 2.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(100, 255, 218, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .welcome-btn:hover {
+            background-color: #80ffde;
+            box-shadow: 0 6px 20px rgba(100, 255, 218, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .welcome-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Set to full viewport height */
+            padding: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Title Animation Classes */
+        @keyframes slideLeftOut {
+            0% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(-100px); opacity: 0; }
+        } @keyframes slideRightOut {
+            0% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(100px); opacity: 0; }
+        } @keyframes slideLeftIn {
+            0% { transform: translateX(100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        } @keyframes slideRightIn {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        } 
+        .slide-left-out { animation: slideLeftOut 0.4s ease forwards; } 
+        .slide-right-out { animation: slideRightOut 0.4s ease forwards; } 
+        .slide-left-in { animation: slideLeftIn 0.4s ease forwards; }
+        .slide-right-in { animation: slideRightIn 0.4s ease forwards; }
+
+        /* Content Styles */
+        .page-title-container {
+            text-align: center;
+            /* height: 80px; */
+            margin-bottom: 57.5px;
+            position: relative;
+            transform: translateY(-10.5px);
+        }
+
+        .page-title {
+            color: #64ffda;
+            font-size: 2.5rem;
+            margin-top: -30px;
+            position: relative;
+            display: inline-block;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .title-underline {
+            position: fixed;
+            height: 3px;
+            background-color: #64ffda;
+            left: 50%;
+            /* Position it exactly where the original underline was */
+            transform: translateX(-50%);
+            transition: width 0.4s ease;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .page-content {
+            margin-top: -22.5px;
+            max-height: calc(100% - 4rem);
+            overflow: auto;
+            padding-right: 1rem;
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            scrollbar-width: thin;
+            scrollbar-color: #2a2a2a #121212;
+            transform: translateY(-15px);
+        }
+
+        /* Custom scrollbar for WebKit browsers */
+        .page-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .page-content::-webkit-scrollbar-track {
+            background: #121212;
+        }
+
+        .page-content::-webkit-scrollbar-thumb {
+            background-color: #2a2a2a;
+            border-radius: 4px;
+        }
+
+        /* About Me Section */
+        .profile-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .profile-pic {
+            margin-top: 30px;
+            width: 225px;
+            height: 225px;
+            border-radius: 50%;
+            margin-right: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            /* background-color: #2a2a2a; */
+            /* border: 3px solid #64ffda; */
+        }
+
+        .profile-info h2 {
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .profile-info p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: #64ffda;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* About Me - Circle */
+        .circle {
+            position: relative;
+            margin-top: 20px;
+            width: 225px;
+            height: 225px;
+            border-radius: 50%;
+            transition: all 0.3s ease; /* FOR CIRCLE - HOVER - SCALE EFFECT*/
+            /* outline: 30px solid rgba(0, 0, 0, 0.35);
+            outline-offset: -12px; */
+            transform: translateY(10px) translateZ(0);
+        }
+
+        .circle img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 50%;
+            /* border: 3px solid #64ffda; */
+            /* border: 3px solid #a8a8a872; */
+        }
+
+        /* Circle Grows During Hover */
+        /* .circle:hover {
+            transform: scale(1.025);
+        } */
+
+        .circle::before,
+        .circle::after {
+            position: absolute;
+            z-index: -1;
+            content: "";
+            inset: -5px;
+            border-radius: inherit;
+            background-image: conic-gradient(#0077B6 0%, #00B4D8 8%, #48CAE4 16%, 
+            #90E0EF 20%, #48CAE4 32%, #00B4D8 40%, #0077B6 50%, #00B4D8 60%, 
+            #48CAE4 68%, #90E0EF 75%, #48CAE4 84%, #00B4D8 92%, #0077B6 100%);
+            animation: rotate 3s linear infinite;
+            will-change: transform; /* Performance Optimization */
+            transform: rotate(0deg) translateZ(0);
+        }
+
+        /* CIRCLE GLOW EFFECT */
+        .circle::after {
+            filter: blur(0.5rem);
+            opacity: 0.7;
+        }
+
+        /* PAUSE CIRCLE ANIMATION ON HOVER */
+        /* .circle:hover::before,
+        .circle:hover::after {
+            animation-play-state: paused;
+        } */
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Simple Contact Bar */
+        .simple-contact-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-radius: 9999px;
+            background-color: rgba(18, 18, 18, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            margin: 1rem auto;
+            height: 51.5px;
+            width: fit-content;
+            transform: translateY(30px);
+        }
+
+        .simple-contact-item {
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.3rem;
+            transition: transform 0.3s;
+        }
+
+        .simple-contact-icon {
+            width: 24px;
+            height: 24px;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .simple-contact-item:hover .simple-contact-icon {
+            transform: translateY(-2px);
+            filter: brightness(0) saturate(100%) invert(100%) sepia(36%) saturate(2778%) hue-rotate(79deg) brightness(110%) contrast(104%);
+        }
+
+        /* Make the simple contact bar only show when the main contact bar is hidden */
+        @media (max-width: 432px) {
+            .simple-contact-bar {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 433px) {
+            .simple-contact-bar {
+                display: none;
+            }
+        }
+
+        /* Projects Section */
+        .project-card {
+            /* background-color: rgba(40, 40, 40, 0.6); */
+            background-color: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #64ffda;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 650px;
+            text-align: justify;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            /* Add Glow During Hover */
+            /* box-shadow: 0 2.5px 15px rgba(255, 255, 255, 0.2); */
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+
+        .project-tech {
+            font-size: 0.9rem;
+            color: #64ffda;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .project-grouper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            max-width: 1320px;
+        }
+
+        @media (max-width: 1400px) {
+            .project-grouper {
+                flex-direction: column;
+                align-items: center;
+                gap: 0px;
+            }
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            /* background-color: rgba(40, 40, 40, 0.6); */
+            background-color: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-top: 4px solid #64ffda;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(100, 255, 218, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #ddd;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .skill-tag:hover {
+            background-color: rgba(100, 255, 218, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background-color: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(5px);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            /* border-left: 2px solid #2a2a2a; */
+            border-left: 4px solid #64ffda;
+            padding-bottom: 1rem;
+            text-align: justify;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 8px;
+        }
+
+        /* BLUE CIRCLE THAT'S ON LEFT */
+        /* .experience-item::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #64ffda;
+            border-radius: 50%;
+            left: -7px;
+            top: 8px;
+        } */
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-location {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-title {
+            margin-top: 20px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .experience-date {
+            margin-top: 20px;
+            color: #64ffda;
+            font-size: 0.9rem;
+        }
+
+        .experience-company {
+            color: #ddd;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-area {
+            color: #64ffda;
+            font-size: 0.9rem;
+        }
+
+        .experience-description {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .experience-description ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-item {
+            background-color: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #64ffda;
+            text-align: justify;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            font-weight: 600;
+            color: #fff;
+            font-size: 1.2rem;
+        }
+
+        .education-date {
+            color: #64ffda;
+        }
+
+        .education-degree {
+            color: #ddd;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-details {
+            color: #aaa;
+        }
+
+        .courses {
+            margin-top: 0.8rem;
+        }
+        
+        .courses-title {
+            font-weight: 600;
+            color: #ddd;
+            margin-bottom: 0.5rem;
+        }
+
+        .courses-list {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .page-title {
+                margin-top: -10px;
+            }
+            
+            .nav-bar {
+                padding: 1rem 0;
+            }
+
+            .nav-item {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+                padding: 0.5rem;
+            }
+
+            .page {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-pic {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+        }
+
+        /* EDITS FOR INDIVIDUAL PAGES */
+        #about {
+            height: 100vh; /* No Scrolling (For Laptop 100% Default Zoom) */
+            overflow: hidden;
+        }
+
+        /* SPACER */
+        .spacer {
+            height: 47.5px; /* Spacer for Bottom of Experience Section */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Welcome overlay -->
+    <div class="welcome-overlay">
+        <div class="animated-gradient"/*style="filter: brightness(0.8);"*/></div>
+        <div class="welcome-content">
+            <h1>Welcome!</h1>
+            <p style="font-family: 'Poppins', sans-serif;">I'm Andy Lee, a dedicated developer with a passion for computer science and music technology. Explore my portfolio to see how I blend creativity with technical expertise.</p>
+            <button class="welcome-btn">Enter Portfolio</button>
+        </div>
+    </div>
+
+    <!-- Animated gradient background -->
+    <div class="animated-gradient"></div>
+
+    <div class="container">
+        <!-- Navigation Bar -->
+        <div class="nav-bar">
+            <div class="nav-indicator"></div>
+            <div class="nav-item" data-page="about">
+                <i class="fas fa-home"></i>
+                <span class="nav-text">About Me</span>
+            </div>
+            <div class="nav-item" data-page="projects">
+                <i class="fas fa-tools"></i>
+                <span class="nav-text">Projects</span>
+            </div>
+            <div class="nav-item" data-page="skills">
+                <i class="fas fa-trophy"></i>
+                <span class="nav-text">Skills</span>
+            </div>
+            <div class="nav-item" data-page="experience">
+                <i class="fas fa-briefcase"></i>
+                <span class="nav-text">Experience</span>
+            </div>
+            <div class="nav-item" data-page="education">
+                <i class="fas fa-graduation-cap"></i>
+                <span class="nav-text">Education</span>
+            </div>
+        </div>
+
+        <div class="contact-bar">
+            <div class="menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+                </svg>
+            </div>
+            <div class="contact-items">
+                <a href="mailto:al4744@columbia.edu" class="contact-item">
+                    <img src="mail.png" alt="Email" class="contact-icon">
+                </a>
+                <a href="https://github.com/al4744" class="contact-item" target="_blank" rel="noopener noreferrer">
+                    <img src="github.png" alt="GitHub" class="contact-icon">
+                </a>
+                <a href="https://linkedin.com/in/andy-lee1" class="contact-item" target="_blank" rel="noopener noreferrer">
+                    <img src="linkedin.png" alt="LinkedIn" class="contact-icon">
+                </a>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- About Me -->
+            <div id="about" class="page">
+                <div class="page-title-container">
+                    <h1 class="page-title">About Me</h1>
+                </div>
+                <div class="page-content" style="transform: translateY(-27.5px);">
+                    <div class="circle" style="margin-left: auto; margin-right: auto;">
+                        <div class="profile-pic" style="display: flex; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 10px;">
+                            <img src="me.jpg" alt="Profile Picture" style="width: 220px; height: 220px; border-radius: 50%;">
+                        </div>
+                    </div>
+
+                    <div class="simple-contact-bar">
+                        <a href="mailto:al4744@columbia.edu" class="simple-contact-item">
+                            <img src="mail.png" alt="Email" class="simple-contact-icon">
+                        </a>
+                        <a href="https://github.com/al4744" class="simple-contact-item" target="_blank" rel="noopener noreferrer">
+                            <img src="github.png" alt="GitHub" class="simple-contact-icon">
+                        </a>
+                        <a href="https://linkedin.com/in/andy-lee1" class="simple-contact-item" target="_blank" rel="noopener noreferrer">
+                            <img src="linkedin.png" alt="LinkedIn" class="simple-contact-icon">
+                        </a>
+                    </div>
+
+                    <div class="profile-container" style="display: flex; justify-content: center; margin-left: auto; margin-right: auto;">
+                        <div class="profile-info">
+                            <!-- Add flex container for the "Andy Lee" line -->
+                            <div style="display: flex; visibility: hidden;">
+                                <h2>Andy Lee</h2>
+                                <span style="margin-left: auto;">
+                                    <div class="contact-info">
+                                        <a href="mailto:al4744@columbia.edu" target="_blank">Email</a>
+                                        <a href="https://linkedin.com/in/andy-lee1" target="_blank">LinkedIn</a>
+                                    </div>
+                                </span>
+                            </div>
+                            <p style="max-width: 650px; text-align: justify; font-family: 'Poppins', sans-serif;">I am pursuing a master’s degree in Computer 
+                            Science at Columbia University to deepen my technical skills after graduating from 
+                            NYU with a bachelor’s degree in Music Technology and Business of Entertainment, Media 
+                            and Technology. My experiences have equipped me with practical skills in audio production, 
+                            product design, technology, and engineering. I am passionate about exploring innovative 
+                            applications of programming, machine learning, and software development in music production 
+                            and audio engineering. By combining my creative background with computer science, 
+                            I aim to contribute to projects that push the boundaries of technology.</p>
+                            <!-- <div class="contact-info">
+                                <a href="mailto:al4744@columbia.edu" target="_blank">Email</a>
+                                <a href="https://linkedin.com/in/andy-lee1" target="_blank">LinkedIn</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div id="projects" class="page">
+                <div class="page-title-container">
+                    <h1 class="page-title">Projects</h1>
+                </div>
+                <div class="page-content" style="display: flex; flex-direction: column; align-items: center;">
+                    <div class="project-grouper" style="margin-top: 5px; margin-bottom: 0px;">
+                        <div class="project-card">
+                            <h3 class="project-title">Content Recommendation System</h3>
+                            <div class="project-tech">Python, ML Algorithms, Linear Algebra & Probability, Data Analysis, Visualization</div>
+                            <p class="project-description"><strong>Multi-Model Engine:</strong> Created song recommendation system which processed and analyzed 600k song dataset
+                            containing audio features and metadata. Applied Direct Similarity Matching, SVD, NMF, and Factorization Machines
+                            to generate personalized recommendations based on user preferences and behavior. <br>
+                            <strong>Optimization & Evaluation:</strong> Handled cold start, engineered cross-feature interactions, implemented dimension-
+                            reduction and matrix factorization techniques, created weighted similarity metrics combining genre and audio feature
+                            analysis. Developed visualization tools to assess model performance, analyzed latent spaces, examined feature
+                            distributions and effects of parameter changes.</p>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3 class="project-title">Word Replacer Tool</h3>
+                            <div class="project-tech">Java, Data Structures, Algorithms, File Manipulation, Performance Optimization</div>
+                            <p class="project-description">Developed a program in Java that performs global search and replace within a text file based on provided input text and word replacement pairs. Implemented several data structures (BSTree, RBTree, HashMap) to store and manage word pairs efficiently. Designed custom algorithms able to manage large inputs by utilizing unique transitive dependency handling and cycle detection, leading to highly optimized performance and runtimes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-grouper" style="margin-bottom: 55px;">
+                        <div class="project-card">  
+                            <h3 class="project-title">Analog / Digital Synthesizers</h3>
+                            <div class="project-tech">C++, KiCad, Fusion360, PCB Design, 3D Modeling, Analog / Digital Signal Processing</div>
+                            <p class="project-description">Independently created and developed both analog and digital synthesizers featuring custom-built circuity and software in C++ to simulate / synthesize various waveforms, effects, and control interfaces.</p>
+                        </div>
+
+                        <div class="project-card">
+                            <h3 class="project-title">Interactive Sound / Game Ball</h3>
+                            <div class="project-tech">C++, KiCad, Fusion360, PCB Design, 3D Modeling, Analog / Digital Signal Processing</div>
+                            <p class="project-description">Built all components of interactive ball with embedded sensors, allowing users to manipulate sound and play games based on orientation and accelerometer data. Developed unique user interface and algorithms in C++, created custom Printed Circuit Board (PCB) and designed 3D Model using KiCad and Fusion360.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills -->
+            <div id="skills" class="page">
+                <div class="page-title-container">
+                    <h1 class="page-title">Skills</h1>
+                </div>
+                <div class="page-content">
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3>Programming Languages</h3>
+                            <div class="skill-list">
+                                <div class="skill-tag">Python</div>
+                                <div class="skill-tag">Java</div>
+                                <div class="skill-tag">JavaScript</div>
+                                <div class="skill-tag">C</div>
+                                <div class="skill-tag">C++</div>
+                                <div class="skill-tag">R</div>
+                                <div class="skill-tag">SQL</div>
+                                <div class="skill-tag">HTML</div>
+                                <div class="skill-tag">CSS</div>
+                                <div class="skill-tag">YAML</div>
+                                <div class="skill-tag">Max</div>
+                                <div class="skill-tag">Shell Scripting</div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Libraries & Frameworks</h3>
+                            <div class="skill-list">
+                                <div class="skill-tag">Pandas</div>
+                                <div class="skill-tag">NumPy</div>
+                                <div class="skill-tag">Scikit-learn</div>
+                                <div class="skill-tag">Matplotlib</div>
+                                <div class="skill-tag">Seaborn</div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Tools</h3>
+                            <div class="skill-list">
+                                <div class="skill-tag">Git</div>
+                                <div class="skill-tag">GitHub</div>
+                                <div class="skill-tag">VS Code</div>
+                                <div class="skill-tag">PyCharm</div>
+                                <div class="skill-tag">IntelliJ</div>
+                                <div class="skill-tag">Jupyter Notebook</div>
+                                <div class="skill-tag">Google Colab</div>
+                                <div class="skill-tag">Multipass</div>
+                                <div class="skill-tag">Vim</div>
+                                <div class="skill-tag">Teensy</div>
+                                <div class="skill-tag">Arduino</div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3>Software</h3>
+                            <div class="skill-list">
+                                <div class="skill-tag">KiCad</div>
+                                <div class="skill-tag">Fusion 360</div>
+                                <div class="skill-tag">Pro Tools</div>
+                                <div class="skill-tag">Logic Pro X</div>
+                                <div class="skill-tag">Ableton Live</div>
+                                <div class="skill-tag">Cubase</div>
+                                <div class="skill-tag">Serato DJ Pro</div>
+                            </div>
+                        </div>
+
+                        <div class="skill-category" style="margin-bottom: 80px;">
+                            <h3>Areas of Expertise</h3>
+                            <div class="skill-list">
+                                <div class="skill-tag">Data Structures</div>
+                                <div class="skill-tag">Algorithms</div>
+                                <div class="skill-tag">PCB Design</div>
+                                <div class="skill-tag">3D Modeling</div>
+                                <div class="skill-tag">Signal Processing</div>
+                                <div class="skill-tag">Audio Engineering</div>
+                                <div class="skill-tag">Machine Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div id="experience" class="page">
+                <div class="page-title-container">
+                    <h1 class="page-title">Experience</h1>
+                </div>
+                <div class="page-content">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Concert Recordist</div>
+                            <div class="experience-date">Dec 2023 - May 2024</div>
+                        </div>
+                        <div class="experience-location">
+                            <div class="experience-company">New York University</div>
+                            <div class="experience-area">New York, NY</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Selected to manage setup, recording, live mixing, and livestreaming of 30+ university performances and recitals</li>
+                                <li>Coordinated closely with performers and directors to design custom mic setups and sound mixes for diverse arrangements and genres, ensuring the perfect balance and smooth execution of performances</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Studio Engineer Intern</div>
+                            <div class="experience-date">Aug 2023 - Dec 2023</div>
+                        </div>
+                        <div class="experience-location">
+                            <div class="experience-company">James L. Dolan Music Recording Studio</div>
+                            <div class="experience-area">New York, NY</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Selected into highly prestigious program in one of most technologically advanced audio recording facilities</li>
+                                <li>Ran Pro Tools, worked with patch bay and console, setup and broke down recording sessions, repaired equipment, and assisted clients with recording and mixing</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Intern</div>
+                            <div class="experience-date">Jun 2023 - Aug 2023</div>
+                        </div>
+                        <div class="experience-location">
+                            <div class="experience-company">Live Nation</div>
+                            <div class="experience-area">Los Angeles, CA</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Collaborated with several departments of Fortune 500 multinational live entertainment company promoting large scale events, ticket sale management, and event production</li>
+                                <li>Planned artists' hospitality and experiences for current tours, created new databases and dossiers containing thousands of artists and venues, organized business services including Ticketmaster</li>
+                                <li>Operated Los Angeles venues such as The Wiltern, Five Point Amphitheatre and The Belasco</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Teaching Assistant</div>
+                            <div class="experience-date">Jun 2022 - Aug 2022</div>
+                        </div>
+                        <div class="experience-location">
+                            <div class="experience-company">New York University</div>
+                            <div class="experience-area">New York, NY</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Managed recording studios, workshopped, and mentored approximately 100 students in music production</li>
+                                <!-- <li>Assisted in teaching and grading assignments for undergraduate and graduate students in the Music Technology program</li>
+                                <li>Helped students with audio engineering, music production, and music technology</li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div class="experience-title">Screen Scoring Intern</div>
+                            <div class="experience-date">Jun 2021 - Aug 2021</div>
+                        </div>
+                        <div class="experience-location">
+                            <div class="experience-company">Remote Control Productions</div>
+                            <div class="experience-area">Los Angeles, CA</div>
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Assisted in composing, editing, scoring first season of major broadcast network television show using Cubase, averaging 7.43 million viewers per episode</li>
+                                <!-- <li>Collaborated with composers and producers to create original scores for various projects</li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="spacer"></div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div id="education" class="page">
+                <div class="page-title-container">
+                    <h1 class="page-title">Education</h1>
+                </div>
+                <div class="page-content">
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div class="education-school">Columbia University</div>
+                            <div class="education-date">Expected May 2026</div>
+                        </div>
+                        <div class="education-degree">Master of Science in Computer Science</div>
+                        <div class="education-details">
+                            <div class="courses">
+                                <div class="courses-title">Courses:</div>
+                                <div class="courses-list">
+                                    Computer Science in Java, Data Structures, Advanced Programming, Linear Algebra & Probability
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div class="education-school">New York University</div>
+                            <div class="education-date">May 2024</div>
+                        </div>
+                        <div class="education-degree">Bachelors in Music Technology, Minor in Business of Entertainment, Media and Technology</div>
+                        <div class="education-details">
+                            Magna Cum Laude & Academic Achievement Award in Music Technology
+                            <div class="courses">
+                                <div class="courses-title">Courses:</div>
+                                <div class="courses-list">
+                                    Analog & Digital Electronics, Electronic Product Design, Analog & Digital Recording Tech, Midi Tech, Computer Programming, Electronic Music Synthesis, AI: Thinking Learning & Consciousness
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Welcome overlay functionality
+        const welcomeOverlay = document.querySelector('.welcome-overlay');
+        const welcomeBtn = document.querySelector('.welcome-btn');
+
+        // Close the welcome overlay when the button is clicked
+        welcomeBtn.addEventListener('click', function() {
+            welcomeOverlay.classList.add('hidden');
+            
+            // Completely remove the overlay after animation completes
+            setTimeout(() => {
+                welcomeOverlay.remove(); // Remove from DOM entirely
+                
+                // Optimize the main gradient that remains visible
+                const mainGradient = document.querySelector('.container > .animated-gradient');
+                if (mainGradient) {
+                    mainGradient.style.willChange = 'transform';
+                    mainGradient.style.transform = 'translateZ(0)';
+                }
+            }, 800);
+        });
+        
+        // Get all navigation items and pages
+        const navItems = document.querySelectorAll('.nav-item');
+        const pages = document.querySelectorAll('.page');
+        
+        // Track current active nav index
+        let currentNavIndex = 0;
+        
+        // Create the nav indicator (blue bubble)
+        const indicator = document.createElement('div');
+        indicator.className = 'nav-indicator';
+        document.querySelector('.nav-bar').appendChild(indicator);
+        
+        // Create a shared underline that will appear across all pages
+        const underline = document.createElement('div');
+        underline.className = 'title-underline';
+        document.body.appendChild(underline); // Add to body to position absolutely
+        
+        // Function to update indicator position and width
+        const updateIndicator = el => el && Object.assign(indicator.style, {
+            width: `${el.offsetWidth}px`,
+            left: `${el.offsetLeft}px`
+        });
+        
+        // Function to update underline position based on active title
+        const updateUnderline = el => el && Object.assign(underline.style, {
+            width: `${el.offsetWidth + 40}px`,
+            top: `${el.getBoundingClientRect().bottom + 5}px`,
+            opacity: '1'
+        });
+        
+        // Show About page by default
+        document.getElementById('about').classList.add('active');
+        document.querySelector('[data-page="about"]').classList.add('active');
+        
+        // Set initial positions
+        window.addEventListener('load', () => {
+            const activeNavItem = document.querySelector('.nav-item.active') || navItems[0];
+            const activeTitle = document.querySelector('.page.active .page-title');
+            updateIndicator(activeNavItem);
+            updateUnderline(activeTitle);
+        });
+        
+        // Handle click events for navigation
+        navItems.forEach((item, index) => {
+            // Handle hover events
+            item.addEventListener('mouseenter', function() {
+                const pageId = this.getAttribute('data-page');
+                
+                if (!document.querySelector('.nav-item.active')) {
+                    pages.forEach(page => page.classList.remove('active'));
+                    document.getElementById(pageId).classList.add('active');
+                    
+                    // Update underline on hover
+                    const hoveredTitle = document.querySelector(`#${pageId} .page-title`);
+                    updateUnderline(hoveredTitle);
+                }
+            });
+            
+            // Handle click events
+            item.addEventListener('click', function() {
+                if (this.classList.contains('active')) return;
+                
+                const clickedIndex = Array.from(navItems).indexOf(this);
+                
+                const currentNavItem = document.querySelector('.nav-item.active');
+                const currentPageId = currentNavItem ? currentNavItem.getAttribute('data-page') : 'about';
+                const currentPage = document.getElementById(currentPageId);
+                const newPageId = this.getAttribute('data-page');
+                const newPage = document.getElementById(newPageId);
+                
+                const currentTitle = currentPage.querySelector('.page-title');
+                const newTitle = newPage.querySelector('.page-title');
+                
+                // Determine animation direction
+                const slideDirection = clickedIndex > currentNavIndex ? 'left' : 'right';
+                
+                // Remove any existing animation classes
+                currentTitle.classList.remove('slide-left-out', 'slide-right-out');
+                newTitle.classList.remove('slide-left-in', 'slide-right-in');
+
+                // Apply title animation classes
+                currentTitle.classList.add(slideDirection === 'left' ? 'slide-left-out' : 'slide-right-out');
+                newTitle.classList.add(slideDirection === 'left' ? 'slide-left-in' : 'slide-right-in');
+                
+                // Update the indicator position to the clicked nav item
+                updateIndicator(this);
+                
+                // Update the underline position
+                updateUnderline(newTitle);
+                
+                // Update page visibility
+                navItems.forEach(navItem => navItem.classList.remove('active'));
+                pages.forEach(page => page.classList.remove('active'));
+                
+                this.classList.add('active');
+                newPage.classList.add('active');
+                
+                // Update current nav index
+                currentNavIndex = clickedIndex;
+                
+                // Clean up animation classes
+                setTimeout(() => {
+                    currentTitle.classList.remove('slide-left-out', 'slide-right-out');
+                    newTitle.classList.remove('slide-left-in', 'slide-right-in');
+                }, 500);
+            });
+        });
+        
+        //START: IS THIS CODE DOING ANYTHING!?!
+        // Handle mouse leaving navigation area
+        document.querySelector('.nav-bar').addEventListener('mouseleave', function() {
+            if (!document.querySelector('.nav-item.active')) {
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById('about').classList.add('active');
+                
+                // Update underline when returning to default page
+                const defaultTitle = document.querySelector('#about .page-title');
+                updateUnderline(defaultTitle);
+            }
+        }); //END: IS THIS CODE DOING ANYTHING!?!
+
+        //TODO >
+        // Make the logo appear clickable
+        if (document.querySelector('.logo-bar')) {
+            document.querySelector('.logo-bar').style.cursor = 'pointer';
+            
+            // Add click event for logo-bar
+            document.querySelector('.logo-bar').addEventListener('click', function() {
+                // Find and click the "About Me" nav item
+                document.querySelector('.nav-item[data-page="about"]').click();
+            });
+        }
+        //TODO <
+        
+        // Update on window resize to maintain correct positioning
+        window.addEventListener('resize', () => {
+            updateIndicator(document.querySelector('.nav-item.active'));
+            updateUnderline(document.querySelector('.page.active .page-title'));
+        });
+        
+        //TODO >
+        // CONTACT BAR FUNCTIONALITY
+        const contactBar = document.querySelector('.contact-bar');
+        const menuButton = document.querySelector('.menu-button');
+
+        let isExpandable = window.innerWidth < 1060; // Track if menu should be expandable
+
+        // Handle screen resize to adjust expandability
+        const handleResize = () => {
+            const nowExpandable = window.innerWidth < 1060;
+
+            if (!nowExpandable && isExpandable) {
+                // Screen switched from small to large
+                contactBar.classList.remove('open');
+                contactBar.classList.remove('hover');
+            }
+
+            isExpandable = nowExpandable;
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initialize on load
+
+        // Toggle contact bar open/closed when menu button is clicked
+        menuButton.addEventListener('click', function () {
+            if (!isExpandable) return; // Don't toggle on large screens
+
+            contactBar.classList.toggle('open');
+
+            // Close the contact bar when clicking outside of it
+            if (contactBar.classList.contains('open')) {
+                const closeContactBar = function (e) {
+                    if (!contactBar.contains(e.target)) {
+                        contactBar.classList.remove('open');
+                        document.removeEventListener('click', closeContactBar);
+                    }
+                };
+
+                setTimeout(() => {
+                    document.addEventListener('click', closeContactBar);
+                }, 10);
+            }
+        });
+
+        // Add hover effect for contact bar
+        contactBar.addEventListener('mouseenter', function () {
+            if (isExpandable) contactBar.classList.add('hover');
+        });
+
+        contactBar.addEventListener('mouseleave', function () {
+            if (isExpandable && !contactBar.classList.contains('open')) {
+                contactBar.classList.remove('hover');
+            }
+        }); //TODO <
+    });
+    </script>
+</body>
+</html>
