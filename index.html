@@ -419,11 +419,32 @@
             transform: translateY(-10px);
         }
 
+        @keyframes bounceZoom {
+            0% {
+                transform: scale(0.5) translateY(-50px);
+                filter: blur(5px);
+            }
+            50% {
+                transform: scale(1.05) translateY(5px); /* A more subtle zoom and bounce */
+                filter: blur(1px);
+            }
+            80% {
+                transform: scale(1) translateY(0); /* Final smooth position */
+                filter: blur(0px);
+            }
+            100% {
+                transform: scale(1) translateY(0); /* Final position */
+                filter: blur(0);
+            }
+        }
+
         .welcome-content h1 {
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             color: #64ffda;
+            animation: bounceZoom 0.6s ease-out forwards;
+            transform: translateZ(0);
         }
 
         .welcome-content p {
@@ -431,6 +452,8 @@
             margin-bottom: 2.5rem;
             color: #f5f5f5;
             line-height: 1.6;
+            animation: bounceZoom 0.6s ease-out forwards;
+            transform: translateZ(0);
         }
 
         .welcome-btn {
@@ -445,6 +468,33 @@
             box-shadow: 0 4px 15px rgba(100, 255, 218, 0.4);
             transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
+            animation: bounceZoom 0.6s ease-out forwards;
+            transform: translateZ(0);
+        }
+
+        .line {
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateZ(0);
+            will-change: transform, opacity;
+        }
+
+        .reveal {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+                /* filter: blur(4px); */
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .welcome-btn:hover {
@@ -1013,74 +1063,6 @@
             height: 47.5px; /* Spacer for Bottom of Experience Section */
         }
 
-        @antml:function_calls>
-        <invoke name="artifacts">
-        <parameter name="command">create</parameter>
-        <parameter name="id">css-fixes</parameter>
-        <parameter name="type">application/vnd.ant.code</parameter>
-        <parameter name="language">css</parameter>
-        <parameter name="title">CSS Fixes for Mobile Scrolling</parameter>
-        <parameter name="content">/* Mobile fixes for scrolling issues */
-
-        /* Change #about page to allow scrolling on mobile */
-        @media (max-width: 768px) {
-            #about {
-                height: auto;
-                min-height: 100vh;
-                overflow: visible;
-            }
-            
-            /* Adjust page content for better mobile scrolling */
-            .page-content {
-                max-height: none;
-                overflow: visible;
-                padding-bottom: 60px; /* Add padding at bottom to prevent content being cut off */
-            }
-            
-            /* Make sure the container allows proper scrolling */
-            .container {
-                height: auto;
-                min-height: 100vh;
-                overflow-y: auto;
-                overflow-x: hidden;
-            }
-            
-            /* Fix content area to fill available space */
-            .content-area {
-                flex: 1;
-                position: relative;
-                overflow: visible;
-            }
-            
-            /* Adjust page positioning for mobile */
-            .page {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: auto;
-                min-height: 100vh;
-                padding: 2rem 1rem 4rem 1rem; /* Added bottom padding */
-            }
-        }
-
-        /* Improve scrollbar appearance on mobile */
-        body {
-            -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
-        }
-
-        /* Add padding to bottom of all pages to prevent content being cut off by browser UI */
-        .spacer {
-            height: 80px; /* Increased from 47.5px to provide more space at bottom */
-        }
-
-        /* Fix for nav bar to ensure it stays at top */
-        .nav-bar {
-            position: sticky;
-            top: 1rem;
-            z-index: 10;
-        }
-
     </style>
 </head>
 <body>
@@ -1098,47 +1080,49 @@
     <div class="animated-gradient"></div>
 
     <div class="container">
-        <!-- Navigation Bar -->
-        <div class="nav-bar">
-            <div class="nav-indicator"></div>
-            <div class="nav-item" data-page="about">
-                <i class="fas fa-home"></i>
-                <span class="nav-text">About Me</span>
+        <div class="line">
+            <!-- Navigation Bar -->
+            <div class="nav-bar">
+                <div class="nav-indicator"></div>
+                <div class="nav-item" data-page="about">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text">About Me</span>
+                </div>
+                <div class="nav-item" data-page="projects">
+                    <i class="fas fa-tools"></i>
+                    <span class="nav-text">Projects</span>
+                </div>
+                <div class="nav-item" data-page="skills">
+                    <i class="fas fa-trophy"></i>
+                    <span class="nav-text">Skills</span>
+                </div>
+                <div class="nav-item" data-page="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="nav-text">Experience</span>
+                </div>
+                <div class="nav-item" data-page="education">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span class="nav-text">Education</span>
+                </div>
             </div>
-            <div class="nav-item" data-page="projects">
-                <i class="fas fa-tools"></i>
-                <span class="nav-text">Projects</span>
-            </div>
-            <div class="nav-item" data-page="skills">
-                <i class="fas fa-trophy"></i>
-                <span class="nav-text">Skills</span>
-            </div>
-            <div class="nav-item" data-page="experience">
-                <i class="fas fa-briefcase"></i>
-                <span class="nav-text">Experience</span>
-            </div>
-            <div class="nav-item" data-page="education">
-                <i class="fas fa-graduation-cap"></i>
-                <span class="nav-text">Education</span>
-            </div>
-        </div>
 
-        <div class="contact-bar">
-            <div class="menu-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-                </svg>
-            </div>
-            <div class="contact-items">
-                <a href="mailto:al4744@columbia.edu" class="contact-item">
-                    <img src="mail.png" alt="Email" class="contact-icon">
-                </a>
-                <a href="https://github.com/al4744" class="contact-item" target="_blank" rel="noopener noreferrer">
-                    <img src="github.png" alt="GitHub" class="contact-icon">
-                </a>
-                <a href="https://linkedin.com/in/andy-lee1" class="contact-item" target="_blank" rel="noopener noreferrer">
-                    <img src="linkedin.png" alt="LinkedIn" class="contact-icon">
-                </a>
+            <div class="contact-bar">
+                <div class="menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+                    </svg>
+                </div>
+                <div class="contact-items">
+                    <a href="mailto:al4744@columbia.edu" class="contact-item">
+                        <img src="mail.png" alt="Email" class="contact-icon">
+                    </a>
+                    <a href="https://github.com/al4744" class="contact-item" target="_blank" rel="noopener noreferrer">
+                        <img src="github.png" alt="GitHub" class="contact-icon">
+                    </a>
+                    <a href="https://linkedin.com/in/andy-lee1" class="contact-item" target="_blank" rel="noopener noreferrer">
+                        <img src="linkedin.png" alt="LinkedIn" class="contact-icon">
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -1146,52 +1130,57 @@
         <div class="content-area">
             <!-- About Me -->
             <div id="about" class="page">
-                <div class="page-title-container">
-                    <h1 class="page-title">About Me</h1>
+                <div class="line">
+                    <div class="page-title-container">
+                        <h1 class="page-title">About Me</h1>
+                    </div>
                 </div>
-                <div class="page-content" style="transform: translateY(-27.5px);">
-                    <div class="circle" style="margin-left: auto; margin-right: auto;">
-                        <div class="profile-pic" style="display: flex; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 10px;">
-                            <img src="me.jpg" alt="Profile Picture" style="width: 220px; height: 220px; border-radius: 50%;">
-                        </div>
-                    </div>
-
-                    <div class="simple-contact-bar">
-                        <a href="mailto:al4744@columbia.edu" class="simple-contact-item">
-                            <img src="mail.png" alt="Email" class="simple-contact-icon">
-                        </a>
-                        <a href="https://github.com/al4744" class="simple-contact-item" target="_blank" rel="noopener noreferrer">
-                            <img src="github.png" alt="GitHub" class="simple-contact-icon">
-                        </a>
-                        <a href="https://linkedin.com/in/andy-lee1" class="simple-contact-item" target="_blank" rel="noopener noreferrer">
-                            <img src="linkedin.png" alt="LinkedIn" class="simple-contact-icon">
-                        </a>
-                    </div>
-
-                    <div class="profile-container" style="display: flex; justify-content: center; margin-left: auto; margin-right: auto;">
-                        <div class="profile-info">
-                            <!-- Add flex container for the "Andy Lee" line -->
-                            <div style="display: flex; visibility: hidden;">
-                                <h2>Andy Lee</h2>
-                                <span style="margin-left: auto;">
-                                    <div class="contact-info">
-                                        <a href="mailto:al4744@columbia.edu" target="_blank">Email</a>
-                                        <a href="https://linkedin.com/in/andy-lee1" target="_blank">LinkedIn</a>
-                                    </div>
-                                </span>
+                
+                <div class="line" style="display: flex; flex-direction: column; justify-content: flex-start; align-items: center; width: 100%; min-height: 100vh; padding-top: 50px; overflow: auto; position: relative; top: -50px;">
+                    <div class="page-content" style="transform: translateY(-27.5px);">
+                        <div class="circle" style="margin-left: auto; margin-right: auto;">
+                            <div class="profile-pic" style="display: flex; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 10px;">
+                                <img src="me.jpg" alt="Profile Picture" style="width: 220px; height: 220px; border-radius: 50%;">
                             </div>
-                            <p style="max-width: 650px; text-align: justify; font-family: 'Poppins', sans-serif;">I am pursuing a master’s degree in Computer 
-                            Science at Columbia University to deepen my technical skills after graduating from 
-                            NYU with a bachelor’s degree in Music Technology and Business of Entertainment, Media 
-                            and Technology. My experiences have equipped me with practical skills in audio production, 
-                            product design, technology, and engineering. I am passionate about exploring innovative 
-                            applications of programming, machine learning, and software development in music production 
-                            and audio engineering. By combining my creative background with computer science, 
-                            I aim to contribute to projects that push the boundaries of technology.</p>
-                            <!-- <div class="contact-info">
-                                <a href="mailto:al4744@columbia.edu" target="_blank">Email</a>
-                                <a href="https://linkedin.com/in/andy-lee1" target="_blank">LinkedIn</a>
-                            </div> -->
+                        </div>
+
+                        <div class="simple-contact-bar">
+                            <a href="mailto:al4744@columbia.edu" class="simple-contact-item">
+                                <img src="mail.png" alt="Email" class="simple-contact-icon">
+                            </a>
+                            <a href="https://github.com/al4744" class="simple-contact-item" target="_blank" rel="noopener noreferrer">
+                                <img src="github.png" alt="GitHub" class="simple-contact-icon">
+                            </a>
+                            <a href="https://linkedin.com/in/andy-lee1" class="simple-contact-item" target="_blank" rel="noopener noreferrer">
+                                <img src="linkedin.png" alt="LinkedIn" class="simple-contact-icon">
+                            </a>
+                        </div>
+
+                        <div class="profile-container" style="display: flex; justify-content: center; margin-left: auto; margin-right: auto;">
+                            <div class="profile-info">
+                                <!-- Add flex container for the "Andy Lee" line -->
+                                <div style="display: flex; visibility: hidden;">
+                                    <h2>Andy Lee</h2>
+                                    <span style="margin-left: auto;">
+                                        <div class="contact-info">
+                                            <a href="mailto:al4744@columbia.edu" target="_blank">Email</a>
+                                            <a href="https://linkedin.com/in/andy-lee1" target="_blank">LinkedIn</a>
+                                        </div>
+                                    </span>
+                                </div>
+                                <p style="max-width: 650px; text-align: justify; font-family: 'Poppins', sans-serif;">I am pursuing a master’s degree in Computer 
+                                Science at Columbia University to deepen my technical skills after graduating from 
+                                NYU with a bachelor’s degree in Music Technology and Business of Entertainment, Media 
+                                and Technology. My experiences have equipped me with practical skills in audio production, 
+                                product design, technology, and engineering. I am passionate about exploring innovative 
+                                applications of programming, machine learning, and software development in music production 
+                                and audio engineering. By combining my creative background with computer science, 
+                                I aim to contribute to projects that push the boundaries of technology.</p>
+                                <!-- <div class="contact-info">
+                                    <a href="mailto:al4744@columbia.edu" target="_blank">Email</a>
+                                    <a href="https://linkedin.com/in/andy-lee1" target="_blank">LinkedIn</a>
+                                </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1463,24 +1452,47 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+        // Reveal Content Function (simplified & timed-based)
+        function revealText() {
+            const lines = Array.from(document.querySelectorAll('.line'));
+            let index = 0;
+            function revealNext() {
+                if (index < lines.length) {
+                    lines[index].classList.add('reveal');
+                    index++;
+                    setTimeout(revealNext, 300); // Delay before showing next line
+                }
+            }
+            revealNext();
+        }
+
         // Welcome overlay functionality
         const welcomeOverlay = document.querySelector('.welcome-overlay');
         const welcomeBtn = document.querySelector('.welcome-btn');
 
         // Close the welcome overlay when the button is clicked
         welcomeBtn.addEventListener('click', function() {
+            // Add hardware acceleration to the overlay before animation
+            welcomeOverlay.style.willChange = 'opacity, transform';
+            welcomeOverlay.style.transform = 'translateZ(0)';
+            
+            // Start fade out
             welcomeOverlay.classList.add('hidden');
             
-            // Completely remove the overlay after animation completes
+            // Optimize main gradient before the overlay is removed
+            const mainGradient = document.querySelector('.container > .animated-gradient');
+            if (mainGradient) {
+                mainGradient.style.willChange = 'transform';
+                mainGradient.style.transform = 'translateZ(0)';
+            }
+            
+            // Start revealing text only after a slight delay
+            setTimeout(revealText, 100);
+            
+            // Remove the overlay after animation completes
             setTimeout(() => {
+                welcomeOverlay.style.willChange = 'auto'; // Clean up
                 welcomeOverlay.remove(); // Remove from DOM entirely
-                
-                // Optimize the main gradient that remains visible
-                const mainGradient = document.querySelector('.container > .animated-gradient');
-                if (mainGradient) {
-                    mainGradient.style.willChange = 'transform';
-                    mainGradient.style.transform = 'translateZ(0)';
-                }
             }, 800);
         });
         
